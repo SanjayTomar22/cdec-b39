@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ("pull-job") {
             steps {
-             echo 'pull job success'   
+             git branch: 'main', url: 'https://github.com/shubhamkalsait/EasyCRUD.git' 
             }
         }
         stage ("build-job") {
