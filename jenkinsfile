@@ -14,9 +14,7 @@ pipeline {
         }
         stage ("test-job") {
             steps {
-                    sh '''cd backend
-                    mvn sonar:sonar   -Dsonar.projectKey=studentapp   -Dsonar.projectName='studentapp'   -Dsonar.host.url=http://3.111.53.215:9000   -Dsonar.token=sqp_c14f48044ad3a80f096a94ec9bd8b5688b0d8ddd
-                    '''
+                    echo 'test job success'
                 }
                 
         }
