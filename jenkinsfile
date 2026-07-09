@@ -23,6 +23,12 @@ pipeline {
                 }
                 
         }
+        stage ("Quality-Test") {
+            steps {
+                    waitForQualityGate abortPipeline: true, credentialsId: 'sonar-cred'
+                }
+                
+        }
         stage ("deploy-job") {
             steps {
                 echo 'deploy job success'
