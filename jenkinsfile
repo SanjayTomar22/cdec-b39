@@ -14,9 +14,9 @@ pipeline {
         }
         stage ("test-job") {
             steps {
-                    sh '''cd backend
-                        mvn sonar:sonar   -Dsonar.projectKey=studentapp   -Dsonar.projectName=\'studentapp\'   -Dsonar.host.url=http://65.2.35.146:9000   -Dsonar.token=sqp_60f615e7900fa44c965cad78fbbd3c202d73d813
-                        '''
+                    withSonarQubeEnv(installationName: 'sonarqube' , credentialsId: 'sonar-cred') {
+                            mvn sonar:sonar -Dsonar.projectKey=studentapp
+                        }
                 }
                 
         }
