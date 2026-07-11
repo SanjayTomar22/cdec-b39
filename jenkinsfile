@@ -13,9 +13,17 @@ pipeline {
                       terraform plan'''
             }
         }
+        stage('Approve') {
+            steps {
+                timeout(15) {
+                  input message: 'Shall we proceed ?' , ok: "Approve"
+                }
+                
+            }
+        }
         stage('Apply') {
             steps {
-                sh '''terraform apply
+                sh '''terraform apply --auto-approve
                     '''
             }
         }
